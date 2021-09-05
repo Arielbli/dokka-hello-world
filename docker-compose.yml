@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /Users/ablitsman/dokka_project_python/nginx.conf:/etc/nginx/nginx.conf
+  helloworld:
+    build: .
+    command: gunicorn --bind 0.0.0.0:8080 helloworld:app --reload --access-logfile -
+    container_name: helloworld
+    restart: unless-stopped
+    expose:
+      - 8080
