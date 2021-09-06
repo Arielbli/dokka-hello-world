@@ -15,6 +15,8 @@ services:
       - ./data/certbot/www:/var/www/certbot
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter
+    ports:
+      - 9113:9113
     command:
       - -nginx.scrape-uri=http://127.0.0.1:8080/nginx_status
     depends_on: 
