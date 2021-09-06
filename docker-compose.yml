@@ -16,8 +16,7 @@ services:
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter
     command:
-      - -nginx.scrape-uri
-      - http://127.0.0.1:8080/nginx_status
+      - -nginx.scrape-uri=http://127.0.0.1:8080/nginx_status
     depends_on: 
       - "nginx"
   certbot:
