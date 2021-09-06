@@ -13,9 +13,9 @@ services:
       - ./data/nginx.conf:/etc/nginx/nginx.conf
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-    nginx-exporter:
-      image: nginx:nginx-prometheus-exporter
-      command:
+  nginx-exporter:
+    image: nginx:nginx-prometheus-exporter
+    command:
       - -nginx.scrape-uri
       - http://127.0.0.1:8080/stub_status
   certbot:
