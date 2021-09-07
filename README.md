@@ -5,11 +5,12 @@ Dokka Hello World is a simple API service hosted at  [devopstest.blitsman.org](h
 Based on [Python 3.9.7-alpine3.13 - Latest at the moment](https://hub.docker.com/_/python?tab=description&page=1&ordering=last_updated) & [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Micro Web-Framwork.
 
 ### Gunicorn as the central master process manager
-Manages the workers, in case of some failure - restart the faild worker. 
-[Gunicorn Docs](https://gunicorn.org/#docs) | [Gunicorn Design](https://docs.gunicorn.org/en/latest/design.html)
+Manages the workers, in case of child process termination - automatically restart the faild worker.<br/>
+- [Gunicorn Docs](https://gunicorn.org/#docs)
+- [Gunicorn Design](https://docs.gunicorn.org/en/latest/design.html)
 
 ### Certbot (Let's Encrypt) Docker Container for TLS Certificate
-[Certbot](https://certbot.eff.org/) is an automated tool to create & manage the certificates needed for our API.
+[Certbot](https://certbot.eff.org/) is an automated tool to create & manage the certificates needed for our API.<br/>
 [Let's Encrypt](https://letsencrypt.org/) - Nonprofit Certificate Authority providing the TLS certificates.
 
 ### Certbot Implementation with Docker Compose
