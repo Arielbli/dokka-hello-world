@@ -21,6 +21,9 @@ The Implementation of this tool is based on - [Nginx and Let’s Encrypt with Do
 To get the initial certificate we had to remove the 443 block from the nginx.conf so the app won't fail on not having the certificate.<br/>
 Once the certificate was issued and placed as needed - 443 block on nginx.conf was returned and the app was now reachable through HTTPS.
 
+### Infrastructure (Microsoft Azure Cloud)
+![Dokka Hello World Application](https://ibb.co/6W40BjS)
+
 ### Tasks
 - [] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
 
