@@ -22,7 +22,7 @@ To get the initial certificate we had to remove the 443 block from the nginx.con
 Once the certificate was issued and placed as needed - 443 block on nginx.conf was returned and the app was now reachable through HTTPS.
 
 ### Infrastructure (Microsoft Azure Cloud)
-![Dokka Hello World Application](https://ibb.co/6W40BjS)
+![Dokka Hello World Application](https://myoctocat.com/assets/images/base-octocat.svg)
 
 ### Tasks
 - [] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
