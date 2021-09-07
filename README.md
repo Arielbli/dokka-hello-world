@@ -14,8 +14,10 @@ Manages the workers, in case of child process termination - automatically restar
 [Let's Encrypt](https://letsencrypt.org/) - Nonprofit Certificate Authority providing the TLS certificates.
 
 ### Certbot Implementation with Docker Compose
-The Implementation of this tool is based on - [Nginx and Let’s Encrypt with Docker](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+The Implementation of this tool is based on - [Nginx and Let’s Encrypt with Docker](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)<br/>
+To get the initial certificate we had to remove the 443 block from the nginx.conf so the app won't fail on not having the certificate.<br/>
+Once the certificate was issued and placed as needed - 443 block on nginx.conf was returned and the app was now reachable through HTTPS.
 
-
-
+### Tasks
+- [] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
 
