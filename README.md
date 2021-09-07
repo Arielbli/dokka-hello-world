@@ -28,8 +28,9 @@ Once the certificate was issued and placed as needed - 443 block on nginx.conf w
 - [] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
 
 ## How To?
-Make sure your machine has Docker Engine & Docker-Compose (Compatible with Version 3 template).
-For initial Certificate issue - remove the 443 block -> `docker-compose up` -> run `./init-letsencrypt.sh`, issue the certificates, make sure the volume mounts are correct -> `docker-compose up`
+Make sure your machine has Docker Engine & Docker-Compose (Compatible with Version 3 template).<br/>
+For initial Certificate issue:<br/>
+remove the 443 block -> `docker-compose up` -> run `./init-letsencrypt.sh`, issue the certificates, make sure the volume mounts are correct -> `docker-compose up`
 ```
 git clone
 docker-compose up
