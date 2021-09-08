@@ -6,7 +6,6 @@ RUN apk add gcc && apk add musl-dev && apk add linux-headers
 RUN pip install -r requirements.txt \
     && pip install virtualenv
 RUN python3 -m virtualenv --python=python3 virtualenv
-RUN pip install opencensus-ext-azure
 EXPOSE 8080
 
 # For local testing - un-needed once working with gunicorn
