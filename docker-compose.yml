@@ -30,7 +30,7 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
   helloworld:
     build: .
-    command: gunicorn --bind 0.0.0.0:8080 helloworld:app --reload --access-logfile -
+    command: gunicorn --bind 0.0.0.0:8080 app.helloworld:app --reload --access-logfile -
     container_name: helloworld
     restart: unless-stopped
     expose:
