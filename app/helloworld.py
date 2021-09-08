@@ -1,9 +1,12 @@
 from flask import Flask
-from logging import StreamHandler
+from opencensus.ext.azure.common import INSTRUMENTATION_KEY
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
 import logging
 
-from applicationinsights.flask.ext import AppInsights
-from opencensus.ext.azure.log_exporter import AzureLogHandler
+INSTRUMENTATION_KEY='f4427b7f-a37c-4e89-a629-1c270edea42c'
 
 
 ## Logger Format
@@ -13,9 +16,14 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S')
 
 logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler(connection_string='InstrumentationKey=f4427b7f-a37c-4e89-a629-1c270edea42c'))
+logger.addHandler(AzureLogHandler(connection_string=f'InstrumentationKey={INSTRUMENTATION_KEY}'))
 
 app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(connection_string=f"InstrumentationKey={INSTRUMENTATION_KEY}"),
+    sampler=ProbabilitySampler(rate=1.0),
+)
 
 # keep stdout/stderr logging using StreamHandler - for testing purposes
 #streamHandler = StreamHandler()
