@@ -21,11 +21,15 @@ The Implementation of this tool is based on - [Nginx and Let’s Encrypt with Do
 To get the initial certificate we had to remove the 443 block from the nginx.conf so the app won't fail on not having the certificate.<br/>
 Once the certificate was issued and placed as needed - 443 block on nginx.conf was returned and the app was now reachable through HTTPS.
 
+### Monitoring
+Monitoring is based on Azure Application Insights - specifically on [OpenCensus Python](https://github.com/census-instrumentation/opencensus-python).<br/>
+Following implementing - [Tracking Flask applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python-request) samples are being sent to Azure Application Insights and we can base monitoring on it such as - API Invocation Tracking.
+
 ### Infrastructure (Microsoft Azure Cloud)
 ![Dokka Hello World Application](https://github.com/Arielbli/dokka-hello-world/blob/main/dokka-hello-world.png?raw=true)
 
 ### Tasks
-- [] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
+- [x] Create a monitoring metric that tracks API invocations (requests/minutes) using Azure Insights monitoring service.
 
 ## How To?
 Make sure your machine has Docker Engine & Docker-Compose (Compatible with Version 3 template).<br/>
