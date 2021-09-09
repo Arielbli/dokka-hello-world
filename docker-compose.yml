@@ -8,19 +8,10 @@ services:
     ports:
       - 80:80
       - 443:443
-      - "127.0.0.1:8080:8080"
     volumes:
       - ./data/nginx.conf:/etc/nginx/nginx.conf
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-  nginx-exporter:
-    image: nginx/nginx-prometheus-exporter
-    ports:
-      - 9113:9113
-    command:
-      - -nginx.scrape-uri=http://127.0.0.1:8080/nginx_status
-    depends_on: 
-      - "nginx"
   certbot:
     image: certbot/certbot
     restart: unless-stopped
